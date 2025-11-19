@@ -1,200 +1,226 @@
+import { Cargo } from "../../auth/Model/cargos";
 import { Tarefas } from "./tarefas";
-
-
 
 export type TarefasBD = Tarefas;
 
-export const devTasks: TarefasBD[] = [
+export const tarefasBD: TarefasBD[] = [
+  // DEV
   {
     id: 1,
     title: 'Criar módulo de autenticação',
     description: 'Implementar JWT e proteção das rotas.',
     completed: false,
+    cargo: Cargo.DEV,
   },
   {
     id: 2,
     title: 'Configurar CI/CD',
     description: 'Criar pipeline automatizada no GitHub Actions.',
     completed: true,
+    cargo: Cargo.DEV,
   },
   {
     id: 3,
     title: 'Refatorar serviço de usuários',
-    description: 'Melhorar a performance e organização do código.',
+    description: 'Melhorar performance e organização do código.',
     completed: false,
+    cargo: Cargo.DEV,
   },
   {
     id: 4,
     title: 'Criar testes unitários',
     description: 'Cobrir serviços principais com Jest.',
     completed: true,
+    cargo: Cargo.DEV,
   },
   {
     id: 5,
     title: 'Integrar sistema de logs',
     description: 'Adicionar Winston e padronizar logs.',
     completed: false,
+    cargo: Cargo.DEV,
   },
   {
     id: 6,
     title: 'Correção de bugs críticos',
-    description: 'Resolver falhas reportadas na última sprint.',
+    description: 'Resolver falhas da última sprint.',
     completed: false,
+    cargo: Cargo.DEV,
   },
-];
 
-export const designTasks: TarefasBD[] = [
+  // DESIGN
   {
-    id: 1,
+    id: 7,
     title: 'Criar paleta de cores',
     description: 'Definir identidade visual primária e secundária.',
     completed: true,
+    cargo: Cargo.DESIGN,
   },
   {
-    id: 2,
+    id: 8,
     title: 'Criar protótipo de alta fidelidade',
-    description: 'Construir telas principais no Figma.',
+    description: 'Construir telas no Figma.',
     completed: false,
+    cargo: Cargo.DESIGN,
   },
   {
-    id: 3,
+    id: 9,
     title: 'Atualizar design system',
     description: 'Padronizar componentes reutilizáveis.',
     completed: false,
+    cargo: Cargo.DESIGN,
   },
   {
-    id: 4,
+    id: 10,
     title: 'Criar ícones personalizados',
     description: 'Desenvolver ícones para o dashboard.',
     completed: true,
+    cargo: Cargo.DESIGN,
   },
   {
-    id: 5,
+    id: 11,
     title: 'Revisar UX do fluxo de cadastro',
-    description: 'Melhorar experiência do usuário no onboarding.',
+    description: 'Melhorar onboarding.',
     completed: false,
+    cargo: Cargo.DESIGN,
   },
   {
-    id: 6,
+    id: 12,
     title: 'Criar materiais de apresentação',
-    description: 'Elaborar slides para apresentação interna.',
+    description: 'Elaborar slides internos.',
     completed: false,
+    cargo: Cargo.DESIGN,
   },
-];
 
-export const managerTasks: TarefasBD[] = [
+  // GERENTE
   {
-    id: 1,
+    id: 13,
     title: 'Organizar planejamento mensal',
-    description: 'Estruturar metas e objetivos com a equipe.',
+    description: 'Estruturar metas com a equipe.',
     completed: false,
+    cargo: Cargo.GERENTE,
   },
   {
-    id: 2,
-    title: 'Realizar reunião 1:1',
-    description: 'Conversar com integrantes sobre performance.',
+    id: 14,
+    title: 'Reunião 1:1 com integrantes',
+    description: 'Avaliar performance individual.',
     completed: true,
+    cargo: Cargo.GERENTE,
   },
   {
-    id: 3,
+    id: 15,
     title: 'Preparar relatório executivo',
     description: 'Apresentar resultados para diretoria.',
     completed: false,
+    cargo: Cargo.GERENTE,
   },
   {
-    id: 4,
+    id: 16,
     title: 'Controlar orçamento do projeto',
-    description: 'Revisar custos operacionais e alocação.',
+    description: 'Revisar custos e alocação.',
     completed: true,
+    cargo: Cargo.GERENTE,
   },
   {
-    id: 5,
-    title: 'Revisar indicadores da sprint',
-    description: 'Avaliar KPIs e progresso das entregas.',
+    id: 17,
+    title: 'Revisar KPIs da sprint',
+    description: 'Avaliar progresso das entregas.',
     completed: false,
+    cargo: Cargo.GERENTE,
   },
   {
-    id: 6,
-    title: 'Ajustar cronograma do time',
-    description: 'Reorganizar prazos conforme prioridades.',
+    id: 18,
+    title: 'Ajustar cronograma',
+    description: 'Reorganizar prazos.',
     completed: false,
+    cargo: Cargo.GERENTE,
   },
-];
 
-export const poTasks: TarefasBD[] = [
+  // PO
   {
-    id: 1,
+    id: 19,
     title: 'Refinar backlog',
-    description: 'Revisar, priorizar e detalhar user stories.',
+    description: 'Revisar e priorizar user stories.',
     completed: false,
+    cargo: Cargo.PO,
   },
   {
-    id: 2,
+    id: 20,
     title: 'Criar critérios de aceitação',
-    description: 'Documentar regras para novas funcionalidades.',
+    description: 'Definir regras das features.',
     completed: true,
+    cargo: Cargo.PO,
   },
   {
-    id: 3,
-    title: 'Realizar meeting com stakeholders',
-    description: 'Alinhar entregas e expectativas.',
+    id: 21,
+    title: 'Reunião com stakeholders',
+    description: 'Alinhar expectativas.',
     completed: false,
+    cargo: Cargo.PO,
   },
   {
-    id: 4,
+    id: 22,
     title: 'Avaliar feedback dos usuários',
-    description: 'Utilizar dados para priorizar melhorias.',
+    description: 'Definir melhorias.',
     completed: true,
+    cargo: Cargo.PO,
   },
   {
-    id: 5,
-    title: 'Planejar próxima sprint',
-    description: 'Selecionar itens e definir objetivos.',
+    id: 23,
+    title: 'Planejar sprint',
+    description: 'Organizar objetivos.',
     completed: false,
+    cargo: Cargo.PO,
   },
   {
-    id: 6,
+    id: 24,
     title: 'Acompanhar métricas do produto',
-    description: 'Monitorar engajamento e performance.',
+    description: 'Monitorar engajamento.',
     completed: false,
+    cargo: Cargo.PO,
   },
-];
 
-export const marketingTasks: TarefasBD[] = [
+  // MARKETING
   {
-    id: 1,
+    id: 25,
     title: 'Criar campanha de lançamento',
-    description: 'Planejar anúncios e materiais promocionais.',
+    description: 'Planejar anúncios.',
     completed: false,
+    cargo: Cargo.MARKETING,
   },
   {
-    id: 2,
-    title: 'Ajustar branding nas redes sociais',
-    description: 'Atualizar perfis e identidade visual.',
+    id: 26,
+    title: 'Ajustar branding',
+    description: 'Atualizar identidade nas redes.',
     completed: true,
+    cargo: Cargo.MARKETING,
   },
   {
-    id: 3,
+    id: 27,
     title: 'Produzir conteúdo semanal',
-    description: 'Escrever posts para blog e redes.',
+    description: 'Criar posts.',
     completed: false,
+    cargo: Cargo.MARKETING,
   },
   {
-    id: 4,
+    id: 28,
     title: 'Analisar métricas de campanha',
-    description: 'Avaliar alcance e engajamento.',
+    description: 'Avaliar alcance.',
     completed: true,
+    cargo: Cargo.MARKETING,
   },
   {
-    id: 5,
-    title: 'Criar materiais para e-mail marketing',
-    description: 'Desenvolver templates e textos.',
+    id: 29,
+    title: 'Criar material de e-mail marketing',
+    description: 'Criar templates.',
     completed: false,
+    cargo: Cargo.MARKETING,
   },
   {
-    id: 6,
+    id: 30,
     title: 'Planejar estratégia de SEO',
-    description: 'Definir palavras-chave e otimizar conteúdos.',
+    description: 'Definir keywords.',
     completed: false,
+    cargo: Cargo.MARKETING,
   },
 ];
