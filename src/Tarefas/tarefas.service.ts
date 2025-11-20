@@ -6,21 +6,21 @@ import { Cargo } from 'src/auth/Model/cargos';
 @Injectable()
 export class TarefasService {
   
-  pegaTarefas(id: number) {
+  pegaTarefas(userId: number) {
 
-   const index = userBD.find((c) => c.id === id)
+   const index = userBD.find((c) => c.id === userId)
 
    if(!index){
       throw new NotFoundException('Error: 404');
    }
 
-   return tarefasBD[index.cargo];
+   return tarefasBD.filter(tarefa => tarefa.cargo === index.cargo);;
 
    }
 
    tarefaConcluida(id: number, bodyData: any) {
 
-    const  completed = bodyData;
+    const  completed = bodyData.feito;
 
   const index = tarefasBD.findIndex((t) => t.id === id);
 

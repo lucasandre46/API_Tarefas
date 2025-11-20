@@ -9,7 +9,7 @@ import { AuthService } from './auth.service';
 export class AuthController {
      constructor(private readonly authService: AuthService) {}
 
-     @Post('register')
+     @Post('cad')
      async register(
         @Res({passthrough: true}) res: Response,
         @Body() registerDTO: RegisterDTO 
@@ -29,7 +29,18 @@ export class AuthController {
      }
 
      @Post('login')
-  async login(@Body() loginDTO: LoginDTO){
+  async login(
+   @Res({passthrough: true}) res: Response,
+   @Body() loginDTO: LoginDTO){
+
+      const { access_token } = await this.authService.login(loginDTO);
+
+      res.cookie('access_token', access_token, {
+         httpOnly: true,
+         secure: true,
+         sameSite: 'strict',
+         maxAge: 1000 * 60 * 60 * 1,
+      })
 
    return this.authService.login(loginDTO)
    

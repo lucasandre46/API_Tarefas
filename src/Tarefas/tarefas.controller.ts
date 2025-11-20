@@ -1,4 +1,4 @@
-import { Controller, Get, Param, ParseIntPipe, Put, Body, Req } from '@nestjs/common';
+import { Controller, Get, Param, ParseIntPipe, Put, Body, Req, Query } from '@nestjs/common';
 import { TarefasService } from './tarefas.service';
 import { TarefasDTO } from './TarefasDTO/tarefasDTO';
 
@@ -7,18 +7,16 @@ export class TarefasController {
   constructor(private readonly tarefasService: TarefasService) {}
 
   
-  @Get(':id')
-  pegaTarefas(@Param('id', ParseIntPipe) id: number) {
-
-    return this.tarefasService.pegaTarefas(id);
+  @Get('tasks')
+  pegaTarefas(@Query('userId', ParseIntPipe) userId: number) {
+    return this.tarefasService.pegaTarefas(userId);
 
   }
 
-  @Put(':id')
+  @Put('tasks/:id')
   tarefaConcluida(
     @Param('id', ParseIntPipe) id: number,
-    @Body() bodyData: TarefasDTO) {
-      
+    @Body() bodyData: TarefasDTO) {      
       return this.tarefasService.tarefaConcluida(id, bodyData);
     }
 

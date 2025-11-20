@@ -12,8 +12,4 @@ email: string;
 @IsString()
 senha: string;
 
-@IsEnum(Cargo, {message: 'cargo invalido'})
-@IsNotEmpty({ message: 'preencha o campo cargo'})
-cargo: Cargo;
-
 }
