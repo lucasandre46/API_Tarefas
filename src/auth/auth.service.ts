@@ -6,6 +6,7 @@ import { User } from './Model/user';
 import * as bcrypt from 'bcryptjs';
 import { JwtService } from '@nestjs/jwt';
 import { LoginDTO } from './UserDTO/userDTO';
+import { LogoutDTO } from './UserDTO/logoutDTO';
 
 @Injectable()
 export class AuthService {
@@ -72,5 +73,17 @@ export class AuthService {
         }
 
     }
+
+    async logout(logoutDTO: LogoutDTO): Promise<{ access_token: string }> {
+    const existingUser = userBD.find((user) => user.email === logoutDTO.email);
+
+    if (!existingUser) {
+        throw new UnauthorizedException('Usuário não encontrado.');
+    }
+
+    return {
+        access_token: '', 
+    };
+}
 
 }

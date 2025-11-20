@@ -1,4 +1,4 @@
-import { Controller, Get, Param, ParseIntPipe, Put, Body, Req, Query } from '@nestjs/common';
+import { Controller, Get, Param, ParseIntPipe, Put, Body, Req, Query, Post } from '@nestjs/common';
 import { TarefasService } from './tarefas.service';
 import { TarefasDTO } from './TarefasDTO/tarefasDTO';
 

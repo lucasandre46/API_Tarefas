@@ -1,5 +1,6 @@
 import { Controller, Param, Get, NotFoundException, Post, Body, Res  } from '@nestjs/common';
 import { RegisterDTO } from './UserDTO/registerDTO';
+import { LogoutDTO } from './UserDTO/logoutDTO';
 import { PassThrough } from 'stream';
 import type { Response } from 'express'
 import { LoginDTO } from './UserDTO/userDTO';
@@ -45,5 +46,21 @@ export class AuthController {
    return this.authService.login(loginDTO)
    
   }
+
+  @Post('logout')
+async logout(
+   @Res({passthrough: true}) res: Response,
+   @Body() logoutDTO: LogoutDTO){
+     const { access_token } = await this.authService.logout(logoutDTO);
+
+        res.cookie('access_token', access_token, {
+           httpOnly: true,
+           secure: true,
+           sameSite: 'strict',
+           maxAge: 0,
+        })
+
+       return this.authService.logout(logoutDTO)
+   }
 
 }
